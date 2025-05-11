@@ -1,0 +1,48 @@
+<app-sidebar></app-sidebar>
+<div class="container-crear-bitacora">
+  <h1 class="titulo">Crear Bitácora</h1>
+
+  <div class="form-bitacora">
+    <!-- Sección Usuarios -->
+    <div class="seccion">
+      <h2 class="subtitulo">Datos de la Bitácora</h2>
+      <div class="data-input">
+        <label for="fecha">Fecha</label>
+        <input
+          type="date"
+          id="fecha"
+          [(ngModel)]="fecha"
+          [attr.min]="today"
+          [attr.max]="today"
+          readonly />
+      </div>
+      <div class="data-input">
+        <label for="datalogger">Datalogger</label>
+        <input type="text" id="datalogger" [(ngModel)]="datalogger" 
+          placeholder="XXXXXXXX"/>
+      </div>
+      <div class="data-input">
+        <label for="hora-carga">Hora de carga</label>
+        <input type="time" id="hora-carga" [(ngModel)]="horaCarga" />
+      </div>
+      <div class="data-input">
+        <label for="hora-salida">Hora de salida</label>
+        <input type="time" id="hora-carga" [(ngModel)]="horaSalida" />
+      </div>
+      <div class="data-input">
+        <label for="temperatura-carga">Temperatura de carga en °C</label>
+        <input type="text" id="temperatura-carga" [(ngModel)]="temperaturaCarga"
+          placeholder="XXXXXXXX" />
+      </div>
+      <div class="data-input">
+        <label for="humedad-carga">Humedad de carga en %</label>
+        <input type="text" id="humedad-carga" [(ngModel)]="humedadCarga"
+          placeholder="XXXXXXXX" />
+      </div>
+    </div>
+
+    <!-- Botón Crear Bitácora -->
+    <button class="btn-crear-bitacora" (click)="crearBitacora()">Crear Bitácora</button>
+  </div>
+  <button class="back-button" (click)="redirectEnvios()">Volver</button>
+</div>

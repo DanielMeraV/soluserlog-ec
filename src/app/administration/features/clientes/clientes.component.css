@@ -1,0 +1,215 @@
+.content {
+    padding: 40px 60px;
+    background-color: var(--color-blanco);
+    margin-left: var(--sidebar-width);
+  }
+  
+  .section-title {
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--color-secundario);
+    margin-bottom: 50px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .search-icon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    filter: invert(32%) sepia(100%) saturate(500%) hue-rotate(180deg);
+  }
+  
+  .search-bar-input {
+    width: 50rem;
+    padding: 8px;
+    border: 1px solid var(--color-blanco);
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  #search{
+    border-radius: 20px;
+    outline: none;
+  }
+
+  .search-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-color: var(--color-secundario);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 5px;
+  }
+  
+  .add-button {
+    padding: 14px 12px;
+    margin-left: 5rem;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .btn-map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-blanco);
+    color: var(--color-secundario);
+    border: 1px solid var(--color-secundario);
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    height: 38px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .btn-map:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+  }
+  
+  .btn-map:hover>img{
+    filter: brightness(0) invert(1);
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical si lo necesitas */
+    gap: 0.5rem;             /* Espaciado entre botones */
+  }
+
+  .gps-mark {
+    width: 30px !important;
+    height: 30px !important;
+    filter: brightness(0) saturate(100%) invert(13%) sepia(93%) saturate(2460%) hue-rotate(214deg) brightness(87%) contrast(95%);
+  }
+
+  .unit {
+    color: var(--color-secundario);
+    font-weight: bold;
+    width: 45px;
+  }
+
+  .ubicacion-column{
+    padding: 2% !important;
+  }
+  
+  .table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid var(--color-secundario);
+    margin-bottom: 20px;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-style: hidden;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    border: 1px solid var(--color-secundario);
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .orders-table th {
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+  }
+  
+  .orders-table td {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+  }
+  
+  .edit-btn, .delete-btn {
+    width: 2rem;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    filter: invert(39%) sepia(50%) saturate(5000%) hue-rotate(180deg) brightness(95%) contrast(90%);
+  }
+  
+  .delete-btn {
+    filter: invert(25%) sepia(89%) saturate(7000%) hue-rotate(355deg) brightness(92%) contrast(95%);
+  }
+
+  /*    confirmar eliminar    */
+  .confirmation-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .confirmation-dialog p {
+    margin-bottom: 30px;
+  }
+  
+  .confirm-btn, .cancel-btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .confirm-btn {
+    background-color: var(--color-azul);
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: var(--color-rojo);
+    color: white;
+  }
+
+  .cancel-btn:hover, .confirm-btn:hover{
+    filter: brightness(0.9);
+  }
+
+  .options-btn{
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  @media (max-width: 768px){
+    .content{
+      margin-left: 0px;
+      padding-top: 25%;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--color-secundario);
+      margin-bottom: 20px;
+    }
+  }

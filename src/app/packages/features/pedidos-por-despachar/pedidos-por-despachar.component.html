@@ -1,0 +1,46 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+     
+    <!-- Título de la sección -->
+    <h2 class="section-title">Pedidos por despachar</h2>
+
+    <button class="add-button" (click)="redirectCrearManifiesto()">Crear Manifiesto</button>
+  
+    <!-- Tabla de pedidos -->
+    <div class="table-container">
+        <table class="orders-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Remitente</th>
+                <th>Destinatario</th>
+                <th>Estado</th>
+                <th>Fecha registro</th>
+                <th>Fecha entrega</th>
+                <th>Bultos</th>
+                <th>Peso (kg)</th>
+                <th>Ticket</th>
+                <th>Factura</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pedido of pedidos">
+                <td>{{ pedido.id }}</td>
+                <td>{{ pedido.sender.companyName }}</td>
+                <td>{{ pedido.receiver.companyName }}</td>
+                <td>{{ pedido.state }}</td>
+                <td>{{ pedido.registrationDate | date: 'dd-MM-yyyy' }}</td>
+                <td>{{ pedido.deliveryDate | date: 'dd-MM-yyyy' }}</td>
+                <td>{{ pedido.totalPackages }}</td>
+                <td>{{ pedido.totalWeight }}</td>
+                <td>
+                    <img src="/assets/icon-pdf.png" alt="Pdf" class="pdf-btn">
+                </td>
+                <td>
+                    <img src="/assets/icon-pdf.png" alt="Pdf" class="pdf-btn">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  

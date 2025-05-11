@@ -1,0 +1,14 @@
+.dashboard-content {
+  margin-left: var(--sidebar-width);
+  /* Ancho del sidebar */
+  padding: 20px;
+  background-color: var(--color-transparente);
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    margin-left: 0px;
+    padding-top: 25%;
+  }
+}

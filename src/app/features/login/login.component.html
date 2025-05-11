@@ -1,0 +1,60 @@
+<div class="container-fluid p-0">
+    <!-- Contenedor principal -->
+    <div class="row vw-100 g-0 vh-100">
+    
+      <!-- Columna izquierda-->
+      <div class="col-md-6 d-flex justify-content-center align-items-center" style="background-color: var(--color-secundario); color: var(--color-blanco); padding: 30px;">
+        <div class="text-center">
+          <img src="/assets/logo-ssl.jpg" alt="Company Logo" class="company-icon mb-4" />
+          <h1 class="display-4" style="font-size: 2.5rem; font-weight: bold;">Servicios Logísticos</h1>
+          <h3 style="font-size: 1.5rem;">Santa Elena</h3>
+        </div>
+      </div>
+  
+      <!-- Columna derecha: Formulario de Login -->
+      <div class="d-flex justify-content-center align-items-center col-md-6 bg-light p-5">
+        <form [formGroup]="loginForm" (ngSubmit)="handleLogin()" class="login-form">
+          <h2 class="mb-4" style="color: var(--color-azul); font-weight: bold; text-align: center;">Iniciar Sesión</h2>
+  
+          <!-- Mensaje de error -->
+          <div *ngIf="error" class="alert alert-danger text-center" style="font-size: 14px; background-color: #f8d7da; color: #721c24;">
+            {{ error }}
+          </div>
+  
+          <!-- Campo de Usuario -->
+          <div class="form-group mb-3">
+            <label for="username" style="font-weight: bold; color: var(--color-azul);">Usuario</label>
+            <input
+              type="text"
+              id="username"
+              formControlName="username"
+              class="form-control"
+              placeholder="Ingresa tu usuario"
+              required
+              style="border: 1px solid var(--color-gris);"
+            />
+          </div>
+  
+          <!-- Campo de Contraseña -->
+          <div class="form-group mb-3">
+            <label for="password" style="font-weight: bold; color: var(--color-azul);">Contraseña</label>
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              class="form-control"
+              placeholder="Ingresa tu contraseña"
+              required
+              style="border: 1px solid var(--color-gris);"
+            />
+          </div>
+  
+          <!-- Botón de Login -->
+          <button type="submit" class="btn login-button mt-4">
+            Entrar
+          </button>
+        </form>
+      </div>
+  
+    </div>  
+</div>

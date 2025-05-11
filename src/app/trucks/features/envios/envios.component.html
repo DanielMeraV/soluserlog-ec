@@ -1,0 +1,28 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+     
+    <!-- Título de la sección -->
+    <h2 class="section-title">Envios</h2>
+  
+    <!-- Tabla de pedidos -->
+    <div class="table-container">
+        <table class="orders-table">
+            <thead>
+              <tr>
+                <th>ID manifiesto</th>
+                <th>ID camion</th>
+                <th>Fecha de asignación</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let manifiesto of manifiestos">
+                <td>{{ manifiesto.id }}</td>
+                <td>{{ manifiesto.truckId }}</td>
+                <td>{{ manifiesto.assignmentDate | date: 'dd-MM-yyyy' }}</td>
+                <td><button class="select-btn" (click)="comprobarBitacoras(manifiesto.id)">Seleccionar</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  

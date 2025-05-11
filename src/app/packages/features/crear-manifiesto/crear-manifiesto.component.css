@@ -1,0 +1,112 @@
+/* Estilo general para el contenido de la parte derecha */
+.content {
+    padding: 40px 60px;
+    background-color: var(--color-blanco);
+    margin-left: var(--sidebar-width);
+  }
+  
+  .section-title {
+    font-size:35px;
+    font-weight: bold;
+    color: var(--color-secundario); /* Azul oscuro */
+    margin-bottom: 50px;
+  }
+  
+  .back-button{
+    padding: 14px 12px;
+    width: 120px;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .back-button:hover {
+    background-color: var(--color-secundario);
+  }
+  
+  /* Estilos para la tabla */
+.table-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px; 
+    border: 1px solid var(--color-secundario);
+    margin-bottom: 20px;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-style: hidden;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    border: 1px solid var(--color-secundario);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .orders-table th {
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+  }
+  
+  .orders-table td {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+  }
+  
+  /* Botón para crear manifiesto */
+  .button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+  }
+
+  .crear-manifiesto-btn {
+    padding: 14px 20px;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .confirm-orders-btn:hover {
+    background-color: var(--color-secundario);
+  }
+
+  /* select de la placa*/
+  select {
+    flex-basis: 40%;
+    padding: 8px;
+    font-family: var(--font-family);
+    border: 1px solid var(--color-gris);
+    border-radius: 4px;
+    color: var(--color-negro);
+    box-sizing: border-box;
+  }
+
+  .data-input{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .data-input label{
+    flex-basis: 15%;
+  }
+
+  .data-input select{
+    border-color: var(--color-secundario);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 10px;
+  }

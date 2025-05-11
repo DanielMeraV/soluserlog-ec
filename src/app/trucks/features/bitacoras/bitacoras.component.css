@@ -1,0 +1,109 @@
+/* Estilo general para el contenido de la parte derecha */
+.content {
+    padding: 40px 60px;
+    background-color: var(--color-blanco);
+    margin-left: var(--sidebar-width);
+  }
+  
+  .section-title {
+    font-size:35px;
+    font-weight: bold;
+    color: var(--color-secundario); /* Azul oscuro */
+    margin-bottom: 20px;
+  }
+
+  h3{
+    color: var(--color-terciario);
+    font-size: 28px;
+  }
+
+  p{
+    color: var(--color-azul);
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Division camiones fijos y adicionales*/
+  .camiones{
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  .camiones-fijos{
+    flex-basis: 47%;
+  }
+  .camiones-adicionales{
+    flex-basis: 47%;
+  }
+  
+  /* Estilos para la tabla */
+.bitacoras {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px; 
+    border: 1px solid var(--color-secundario);
+    margin-bottom: 40px;
+  }
+  
+  .bitacora-table {
+    width: 100%;
+    border-style: hidden;
+    border-collapse: collapse;
+  }
+  
+  .bitacora-table th,
+  .bitacora-table td {
+    border: 1px solid var(--color-secundario);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .bitacora-table th {
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+  }
+  
+  .bitacora-table td {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+  }
+
+  .bitacora-table th:nth-child(1),
+  .bitacora-table td:nth-child(1),
+  .bitacora-table th:nth-child(3),
+  .bitacora-table td:nth-child(3) {
+      width: 30%;
+  }
+  
+  
+  /* Botones de acción en la tabla */
+  .pdf-btn {
+    padding: 5px 10px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+  }
+  
+  .pdf-btn:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px){
+    .content{
+      margin-left: 0px;
+      padding-top: 25%;
+    }
+  
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--color-secundario);
+      margin-bottom: 20px;
+    }
+
+    .camiones{
+      justify-content: center;
+    }
+  }

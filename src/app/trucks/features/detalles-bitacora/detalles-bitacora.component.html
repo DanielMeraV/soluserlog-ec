@@ -1,0 +1,175 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+  <!-- Título de la sección -->
+  <h2 class="section-title">Detalle Bitácora</h2>
+
+  <div class="logbook-data-container">
+    <!-- Encabezado de Datos de la Bitácora -->
+    <div class="seccion">
+      <h2 class="subtitulo">Datos de la Bitácora</h2>
+      <div class="table-container">
+        <table class="orders-table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="data-input logbook-header">
+                  <label for="fecha">Fecha: </label>
+                  <span id="fecha">{{ bitacora?.date | date: 'dd-MM-yyyy'}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="data-input logbook-header">
+                  <label for="hora-salida">Hora de salida: </label>
+                  <span id="hora-salida">{{ bitacora?.departureTime }}</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="data-input logbook-header">
+                  <label for="datalogger">Datalogger: </label>
+                  <span id="datalogger">{{ bitacora?.datalogger }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="data-input logbook-header">
+                  <label for="temperatura-carga">Temperatura de carga en °C: </label>
+                  <span id="temperatura-carga">{{ bitacora?.loadTemperature }}</span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="data-input logbook-header">
+                  <label for="hora-carga">Hora de carga: </label>
+                  <span id="hora-carga">{{ bitacora?.loadTime }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="data-input logbook-header">
+                  <label for="humedad-carga">Humedad de carga en %: </label>
+                  <span id="humedad-carga">{{ bitacora?.loadHumidity }}</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Formularios de órdenes -->
+    <div *ngFor="let order of orders; let i = index" class="form-container">
+      <div class="order-header">
+        <h3 class="order-title">Pedido {{ order.id }}</h3>
+      </div>
+
+      <form class="delivery-form" #orderForm="ngForm">
+        <div class="form-group">
+          <label [for]="'remitente-' + i">Remitente</label>
+            <div class="input-group">
+              <input 
+              type="text" 
+              [id]="'remitente-' + i" 
+              name="remitente"
+              [ngModel]="formData[i]?.remitente" 
+              (ngModelChange)="formData[i].remitente = $event"
+              [disabled]="true" 
+              class="input-disabled">
+              <button type="button" class="btn-map unit" (click)="verUbicacionDestino(order.id, 'remitente')">
+                <img src="/assets/icon-gps-mark.png" alt="GPS mark" class="gps-mark">
+              </button>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label [for]="'destinatario-' + i">Destinatario</label>
+          <div class="input-group">
+            <input 
+            type="text" 
+            [id]="'destinatario-' + i" 
+            name="destinatario"
+            [ngModel]="formData[i]?.destinatario" 
+            (ngModelChange)="formData[i].destinatario = $event"
+            [disabled]="true" 
+            class="input-disabled">
+            <button type="button" class="btn-map unit" (click)="verUbicacionDestino(order.id, 'destinatario')">
+              <img src="/assets/icon-gps-mark.png" alt="GPS mark" class="gps-mark">
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label [for]="'temperatura-' + i">Temperatura</label>
+          <div class="input-group">
+            <input 
+              type="text" 
+              [id]="'temperatura-' + i" 
+              name="temperatura"
+              [ngModel]="formData[i]?.temperatura" 
+              (ngModelChange)="formData[i].temperatura = $event"
+              placeholder="Ingrese la temperatura"
+              [disabled]="formData[i].bloqueado ? true : false">
+            <span class="unit">°C</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label [for]="'humedad-' + i">Humedad</label>
+          <div class="input-group">
+            <input 
+              type="text" 
+              [id]="'humedad-' + i" 
+              name="humedad"
+              [ngModel]="formData[i]?.humedad" 
+              (ngModelChange)="formData[i].humedad = $event"
+              placeholder="Ingrese la humedad"
+              [disabled]="formData[i].bloqueado ? true : false">
+            <span class="unit">%</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label [for]="'horaEntrega-' + i">Hora de entrega</label>
+          <input 
+            type="time" 
+            [id]="'horaEntrega-' + i" 
+            name="horaEntrega"
+            [ngModel]="formData[i]?.horaEntrega"  
+            (ngModelChange)="formData[i].horaEntrega = $event"
+            [disabled]="formData[i].bloqueado ? true : false">
+        </div>
+
+        <div class="form-group">
+          <label [for]="'fotoEntrega-' + i">Foto de entrega</label>
+          <input 
+            type="file" 
+            [id]="'fotoEntrega-' + i" 
+            name="fotoEntrega"
+            accept="image/*" 
+            (change)="onFileSelected($event, i)"
+            [disabled]="formData[i].bloqueado ? true : false">
+        </div>
+
+        <div class="form-group full-width">
+          <label [for]="'novedades-' + i">Novedades</label>
+          <textarea 
+            [id]="'novedades-' + i" 
+            name="novedades"
+            [ngModel]="formData[i]?.novedades" 
+            (ngModelChange)="formData[i].novedades = $event"
+            placeholder="Ingrese las novedades"
+            [disabled]="formData[i].bloqueado ? true : false"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button *ngIf="!formData[i]?.bloqueado" type="button" class="btn-primary" (click)="guardarEntrega(i, order.id)">
+            Guardar Entrega
+          </button>
+          <button *ngIf="!formData[i]?.bloqueado" type="button" class="btn-secondary" (click)="limpiarFormulario(i)" >
+            Limpiar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

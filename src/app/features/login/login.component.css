@@ -1,0 +1,35 @@
+/* Contenedor principal */
+
+
+.company-icon {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-bottom: 21px;
+}
+
+
+.login-form {
+  width: 80%;
+  max-width: 400px;
+}
+
+.login-button{
+  width: 100%; 
+  padding: 13px; 
+  background-color: var(--color-terciario); 
+  color: var(--color-blanco); 
+  font-size: 16px; 
+  font-weight: bold; 
+  border: none; 
+  border-radius: 10px;
+}
+
+.login-button:hover {
+  background-color: var(--color-azul); /* Puedes cambiar por otro color */
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+

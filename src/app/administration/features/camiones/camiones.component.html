@@ -1,0 +1,68 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+  <!-- Título de la sección -->
+  <h2 class="section-title">Camiones</h2>
+
+  <!-- Barra de búsqueda -->
+
+  <div class="row align-items-center mb-4 gy-3">
+    <div class="col-12 col-md-8">
+      <div class="search-container w-100">
+        <input type="text" id="search" class="search-bar-input" placeholder="Buscar camiones..." />
+        <img src="/assets/icon-search.png" alt="Buscar" class="search-icon" />
+      </div>
+    </div>
+    <div class="col-12 col-md-4 d-flex justify-content-md-end justify-content-start">
+      <button class="add-button" (click)="redirectCrearCamion()">Nuevo Camión</button>
+    </div>
+  </div>
+
+  <!-- Tabla de camiones -->
+  <div class="table-container">
+    <table class="orders-table table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Placa</th>
+          <th>ID Conductor</th>
+          <th>Tipo</th>
+          <th>Estado</th>
+          <th>Hora de entrada</th>
+          <th>Hora de salida</th>
+          <th>Ubicación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let camion of camiones">
+          <td>{{ camion.id }}</td>
+          <td>{{ camion.licensePlate }}</td>
+          <td>{{ camion.userId }}</td>
+          <td>{{ camion.type }}</td>
+          <td>{{ camion.state }}</td>
+          <td>{{ camion.entryTime }}</td>
+          <td>{{ camion.departureTime }}</td>
+          <td class="ubicacion-column">
+            <button type="button" class="btn-map unit" (click)="verUbicacionDestino(camion.id)">
+              <img src="/assets/icon-gps-mark.png" alt="GPS mark" class="gps-mark">
+            </button>
+          </td>
+          <td>
+            <img src="/assets/icon-pencil.png" alt="Editar" class="edit-btn" (click)="editarCamion(camion.id)" />
+            <img src="/assets/icon-trash.png" alt="Eliminar" class="delete-btn" (click)="eliminarCamion(camion.id)" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Confirmación flotante -->
+  <div class="confirmation-dialog" *ngIf="showConfirmation">
+    <p>¿Estás seguro de que deseas eliminar este pedido?</p>
+    <div class="options-btn">
+      <button class="confirm-btn" (click)="confirmarEliminacion()">Sí, eliminar</button>
+      <button class="cancel-btn" (click)="cancelarEliminacion()">Cancelar</button>
+    </div>
+  </div>
+
+</div>

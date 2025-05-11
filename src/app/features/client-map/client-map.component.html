@@ -1,0 +1,75 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+    <h2 class="section-title">Ubicación del cliente</h2>
+    <div class="client-data-container">
+        <!-- Encabezado de Datos de la Bitácora -->
+        <div class="seccion">
+            <h2 class="subtitulo">Datos del cliente</h2>
+            <div class="table-container">
+                <table class="orders-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="data-input client-header">
+                                    <label for="nombre">Nombre: </label>
+                                    <span id="nombre">{{ cliente?.companyName
+                                        }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="data-input client-header">
+                                    <label for="ruc">RUC: </label>
+                                    <span id="ruc">{{ cliente?.ruc
+                                        }}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="data-input client-header">
+                                    <label for="email">Email: </label>
+                                    <span id="email">{{ cliente?.email
+                                        }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="data-input client-header">
+                                    <label for="direccion">Dirección:
+                                    </label>
+                                    <span id="direccion">{{
+                                        cliente?.address }}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="data-input client-header">
+                                    <label for="telefono">Teléfono: </label>
+                                    <span id="telefono">{{ cliente?.phone
+                                        }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="data-input client-header">
+                                    <label for="ciudad">Ciudad: </label>
+                                    <span id="ciudad">{{ cliente?.city
+                                        }}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="map-container">
+                <app-static-maps [lat]="lat" [lon]="lon"
+                    [name]="name"></app-static-maps>
+            </div>
+        </div>
+        <button type="button" class="btn-primary" (click)="volver()">
+            Regresar
+        </button>
+
+    </div>
+    
+
+</div>

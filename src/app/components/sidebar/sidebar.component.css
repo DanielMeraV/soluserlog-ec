@@ -1,0 +1,186 @@
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--color-secundario);
+    color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+  }
+  
+  .profile {
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+    cursor: pointer;
+  }
+
+  .profile div{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--color-blanco);
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    filter: invert(32%) sepia(100%) saturate(500%) hue-rotate(180deg);
+  }
+
+  .icon-arrow{
+    width: 30px;
+    height: 30px;
+    max-width: 30px;
+    max-height: 30px;
+    margin-right: 15px;
+    filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(180deg);
+  }
+  
+  .profile p {
+    margin-left: 10px;
+    max-width: 180px; 
+    word-wrap: break-word; 
+    font-weight: bold;
+}
+
+  
+  a {
+    padding: 5px;
+  }
+  
+  .menu {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 10px 0px 10px 8px;
+  }
+  
+  .menu li a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+  
+  .menu li a:hover {
+    background-color: var(--color-blanco);
+    color: var(--color-secundario);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    cursor: pointer;
+  }
+
+  .menu li a:hover > img{
+    filter: invert(32%) sepia(100%) saturate(500%) hue-rotate(180deg);
+  }
+  
+  .submenu {
+    list-style-type: none;
+    padding-left: 65px;
+    display: none; /* Ocultar los submenús por defecto */
+  }
+  
+  .menu li.active > .submenu {
+    display: block; /* Mostrar el submenú cuando el li tiene la clase 'active' */
+  }
+  
+  .menu li ul li {
+    padding: 5px 0;
+  }
+  
+  .menu li ul li a {
+    font-weight: normal;
+  }
+
+  
+  /* Submenú activo */
+  .submenu li.active a{
+    font-weight: bold;
+    background-color: var(--color-blanco);
+    color: var(--color-secundario);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+
+  .menu li.active > a .icon-arrow {
+    transform: rotate(90deg);
+}
+
+
+.logout-button {
+  margin-top: auto; 
+  margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.logout-button button {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--color-rojo); 
+  color: var(--color-blanco); 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button button:hover {
+  background-color: var(--color-rojo-oscuro); 
+}
+
+/* BOTÓN HAMBURGUESA */
+.toggle-sidebar-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: var(--color-secundario);
+  color: var(--color-blanco);
+  border: none;
+  font-size: 30px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
+  display: none; /* Solo se muestra en móviles */
+}
+
+/* Cuando el sidebar esté cerrado */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* Transiciones suaves */
+.sidebar {
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* RESPONSIVE para celulares */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* un ancho más pequeño en móviles */
+    height: 100%;
+  }
+
+  .toggle-sidebar-btn {
+    display: block; /* Ahora sí mostramos el botón */
+  }
+
+  .profile{
+    margin-top: 15%;
+    flex-direction: column;
+  }
+}

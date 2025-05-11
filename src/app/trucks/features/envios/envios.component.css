@@ -1,0 +1,77 @@
+/* Estilo general para el contenido de la parte derecha */
+.content {
+    padding: 40px 60px;
+    background-color: var(--color-blanco);
+    margin-left: var(--sidebar-width);
+  }
+  
+  .section-title {
+    font-size:35px;
+    font-weight: bold;
+    color: var(--color-secundario); /* Azul oscuro */
+    margin-bottom: 50px;
+  }
+  
+  /* Estilos para la tabla */
+.table-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px; 
+    border: 1px solid var(--color-secundario);
+    margin-bottom: 20px;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-style: hidden;
+    border-collapse: collapse;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    border: 1px solid var(--color-secundario);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .orders-table th {
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+  }
+  
+  .orders-table td {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+  }
+  
+  
+  /* Botones de acción en la tabla */
+  .select-btn {
+    padding: 14px 20px;
+    background-color: var(--color-azul);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .select-btn:hover {
+    background-color: var(--color-secundario);
+  }
+  
+  @media (max-width: 768px){
+    .content{
+      margin-left: 0px;
+      padding-top: 25%;
+    }
+  
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--color-secundario);
+      margin-bottom: 20px;
+    }
+  }

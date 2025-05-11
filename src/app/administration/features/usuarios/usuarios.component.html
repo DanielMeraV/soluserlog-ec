@@ -1,0 +1,56 @@
+<app-sidebar></app-sidebar>
+
+<div class="content">
+  <!-- Título de la sección -->
+  <h2 class="section-title">Usuarios</h2>
+
+  <!-- Barra de búsqueda -->
+  <div class="row align-items-center mb-4 gy-3">
+    <div class="col-12 col-md-8">
+      <div class="search-container w-100">
+        <input type="text" id="search" class="search-bar-input" placeholder="Buscar usuario..." />
+        <img src="/assets/icon-search.png" alt="Buscar" class="search-icon" />
+      </div>
+    </div>
+    <div class="col-12 col-md-4 d-flex justify-content-md-end justify-content-start">
+      <button class="add-button" (click)="redirectCrearUsuario()">Nuevo Usuario</button>
+    </div>
+  </div>
+
+  <!-- Tabla de usuarios -->
+  <div class="table-container">
+    <table class="orders-table table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre Completo</th>
+          <th>Nombre de Usuario</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.name }}</td>
+          <td>{{ usuario.username }}</td>
+          <td>{{ usuario.userType }}</td>
+          <td>
+            <img src="/assets/icon-pencil.png" alt="Editar" class="edit-btn" (click)="editarUsuario(usuario.id)" />
+            <img src="/assets/icon-trash.png" alt="Eliminar" class="delete-btn" (click)="eliminarUsuario(usuario.id)" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Confirmación flotante -->
+  <div class="confirmation-dialog" *ngIf="showConfirmation">
+    <p>¿Estás seguro de que deseas eliminar este pedido?</p>
+    <div class="options-btn">
+      <button class="confirm-btn" (click)="confirmarEliminacion()">Sí, eliminar</button>
+      <button class="cancel-btn" (click)="cancelarEliminacion()">Cancelar</button>
+    </div>
+  </div>
+
+</div>

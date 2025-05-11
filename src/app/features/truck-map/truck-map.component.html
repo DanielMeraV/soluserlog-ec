@@ -1,0 +1,52 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+    <h2 class="section-title">Ubicación del camión</h2>
+    <div class="truck-data-container">
+        <div class="seccion">
+            <h2 class="subtitulo">Datos del Camión</h2>
+            <div class="table-container">
+                <table class="truck-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="data-input truck-header">
+                                    <label for="placa">Placa: </label>
+                                    <span id="placa">{{camion?.licensePlate}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="data-input truck-header">
+                                    <label for="tipo">Tipo: </label>
+                                    <span id="tipo">{{camion?.type}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="data-input truck-header">
+                                    <label for="estado">Estado: </label>
+                                    <span id="estado">{{camion?.state}}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="data-input truck-header">
+                                    <label for="conductor">Conductor:
+                                    </label>
+                                    <span id="conductor">{{conductor?.name}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="map-container">
+                <app-dinamic-maps></app-dinamic-maps>
+            </div>            
+        </div>
+        <button type="button" class="btn-primary" (click)="volver()">
+            Regresar
+        </button>
+    </div>
+    
+
+</div>

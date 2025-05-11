@@ -1,0 +1,55 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+     
+    <!-- Título de la sección -->
+    <h2 class="section-title">Crear Manifiesto</h2>
+
+    <button class="back-button" (click)="redirectPedidosPorDespachar()">Volver</button>
+  
+    <div class="data-input">
+        <label for="placa">Placa del camión</label>
+        <select id="placa" [(ngModel)]="placaSeleccionado">
+          <option *ngFor="let placa of placas" [value]="placa.id">
+            Camion {{ placa.id }} - Placa: {{ placa.licensePlate }} - {{ placa.type }}
+          </option>
+        </select>
+      </div>
+
+    <!-- Tabla de pedidos -->
+    <div class="table-container">
+      <table class="orders-table">
+          <thead>
+            <tr>
+              <th type="checkbox"><input type="checkbox" (change)="toggleSelectAll($event)"/></th>
+              <th>ID</th>
+              <th>Remitente</th>
+              <th>Destinatario</th>
+              <th>Estado</th>
+              <th>Fecha registro</th>
+              <th>Fecha entrega</th>
+              <th>Bultos</th>
+              <th>Peso (kg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pedido of pedidos">
+              <td><input type="checkbox" (change)="togglePedidoSeleccionado(pedido)" [checked]="pedidosSeleccionados.includes(pedido)"/></td>
+              <td>{{ pedido.id }}</td>
+              <td>{{ pedido.sender.companyName }}</td>
+              <td>{{ pedido.receiver.companyName }}</td>
+              <td>{{ pedido.state }}</td>
+              <td>{{ pedido.registrationDate | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ pedido.deliveryDate | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ pedido.totalPackages }}</td>
+              <td>{{ pedido.totalWeight }}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+  
+    <!-- Botón para confirmar pedidos -->
+    <div class="button-container">
+        <button class="crear-manifiesto-btn" (click)="crearManifiesto()">Crear Manifiesto</button>
+      </div>
+  </div>
+  

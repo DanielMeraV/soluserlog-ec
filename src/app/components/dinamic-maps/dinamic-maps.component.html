@@ -1,0 +1,12 @@
+<div class="map-container">
+    <div class="controls-container">
+      <div class="truck-selector">
+        <button class="btn-primary" (click)="obtenerYEnviarUbicacion()">Obtener Ubicación</button>
+        <p *ngIf="address"><strong>Dirección actual:</strong> {{ address }}</p>
+ 
+      </div>
+      
+    </div>
+    
+    <div id="map" style="height: 50rem; width: 50rem;"></div>
+  </div> 

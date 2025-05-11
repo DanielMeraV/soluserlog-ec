@@ -1,0 +1,90 @@
+<app-sidebar></app-sidebar>
+
+<div class="content">
+
+  <!-- Título de la sección -->
+  <h2 class="section-title">Manifiestos</h2>
+
+  <div class="row camiones">
+    <div class="col-md-6 camiones-fijos">
+      <h3>Camiones fijos</h3>
+      <div class="camiones-fijos-container">
+        <div *ngFor="let camion of camionesFijos">
+          <p>Camión {{camion.id}}</p>
+          <div class="manifiestos" *ngIf="manifiestosPorCamion[camion.id]?.length">
+            <table class="manifiesto-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Fecha asignación</th>
+                  <th>Manifiesto</th>
+                  <th>Guía de remisión</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let manifiesto of manifiestosPorCamion[camion.id]">
+                  <td>{{ manifiesto.id }}</td>
+                  <td>{{ manifiesto.assignmentDate | date:'dd-MM-yyyy' }}</td>
+                  <td>
+                    <ng-container *ngIf="manifiesto.manifestoPdf !== '---'; else noPdf">
+                      <img src="/assets/icon-pdf.png" alt="Descargar Manifiesto" class="pdf-btn"
+                        (click)="downloadPdf(manifiesto.id, 'manifesto')">
+                    </ng-container>
+                    <ng-template #noPdf>---</ng-template>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="manifiesto.referralGuidePdf !== '---'; else noReferralGuide">
+                      <img src="/assets/icon-pdf.png" alt="Referral Guide PDF" class="pdf-btn">
+                    </ng-container>
+                    <ng-template #noReferralGuide>---</ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabla de camiones adicionales -->
+    <div class="col-md-6 camiones-adicionales">
+      <h3>Camiones adicionales</h3>
+      <div class="camiones-adicionales-container">
+        <div *ngFor="let camion of camionesAdicionales">
+          <p>Camión {{camion.id}}</p>
+          <div class="manifiestos" *ngIf="manifiestosPorCamion[camion.id]?.length">
+            <table class="manifiesto-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Fecha asignación</th>
+                  <th>Manifiesto</th>
+                  <th>Guía de remisión</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let manifiesto of manifiestosPorCamion[camion.id]">
+                  <td>{{ manifiesto.id }}</td>
+                  <td>{{ manifiesto.assignmentDate | date:'dd-MM-yyyy' }}</td>
+                  <td>
+                    <ng-container *ngIf="manifiesto.manifestoPdf !== '---'; else noPdf">
+                      <img src="/assets/icon-pdf.png" alt="Descargar Manifiesto" class="pdf-btn"
+                        (click)="downloadPdf(manifiesto.id, 'manifesto')">
+                    </ng-container>
+                    <ng-template #noPdf>---</ng-template>
+                  </td>
+                  <td>
+                    <ng-container *ngIf="manifiesto.referralGuidePdf !== '---'; else noReferralGuide">
+                      <img src="/assets/icon-pdf.png" alt="Referral Guide PDF" class="pdf-btn">
+                    </ng-container>
+                    <ng-template #noReferralGuide>---</ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

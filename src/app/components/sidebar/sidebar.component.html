@@ -1,0 +1,113 @@
+<button class=" btn btn-outline-primary toggle-sidebar-btn" (click)="toggleSidebar()">
+  ☰
+</button>
+
+<div class="sidebar" [class.closed]="!isSidebarOpen">
+  <div class="profile p-3 d-flex align-items-center gap-3" (click)="cleanMenuAndSubMenu(); redirectDashboard()">
+    <div>
+      <img src="/assets/icon-user.png" alt="Profile Logo" class="profile-img" />
+    </div>
+    <p class="mb-0 fw-bold">Usuario {{ username }}</p>
+  </div>
+
+  <ul class="menu list-unstyled mt-3">
+    <li
+      *ngIf="userType === 'admin'"
+      id="administracion"
+      [ngClass]="{ active: activeMenu === 'administracion' }"
+    >
+      <a class="d-flex align-items-center gap-2 px-3 py-2 sidebar-link" (click)="onLinkClick($event, 'administracion')">
+        <img
+          src="/assets/icon-right-arrow.png"
+          alt="Rigth arrow"
+          class="icon-arrow"
+        />
+        Administración</a
+      >
+      <ul class="submenu list-unstyled ps-5">
+        <li id="clientes" [ngClass]="{ active: activeSubMenu === 'clientes' }">
+          <a (click)="toggleSubMenu('clientes'); redirectClientes()">Clientes</a>
+        </li>
+        <li id="usuarios" [ngClass]="{ active: activeSubMenu === 'usuarios' }">
+          <a (click)="toggleSubMenu('usuarios'); redirectUsuarios()">Usuarios</a>
+        </li>
+        <li id="camiones" [ngClass]="{ active: activeSubMenu === 'camiones' }">
+          <a (click)="toggleSubMenu('camiones'); redirectCamiones()">Camiones</a>
+        </li>
+      </ul>
+    </li>
+
+    <li
+      *ngIf="userType === 'paqueteria' || userType === 'admin'"
+      id="paqueteria"
+      [ngClass]="{ active: activeMenu === 'paqueteria' }"
+    >
+      <a class="d-flex align-items-center gap-2 px-3 py-2 sidebar-link" (click)="onLinkClick($event, 'paqueteria')">
+        <img
+          src="/assets/icon-right-arrow.png"
+          alt="Rigth arrow"
+          class="icon-arrow"
+        />
+        Paquetería</a
+      >
+      <ul class="submenu  list-unstyled ps-5">
+        <li id="pedidos" [ngClass]="{ active: activeSubMenu === 'pedidos' }">
+          <a (click)="toggleSubMenu('pedidos'); redirectPedidos()">Pedidos</a>
+        </li>
+        <li
+          id="pedidosPorDespachar"
+          [ngClass]="{ active: activeSubMenu === 'pedidosPorDespachar' }"
+        >
+          <a
+            (click)="
+              toggleSubMenu('pedidosPorDespachar');
+              redirectPedidosPorDespachar()
+            "
+            >Pedidos por despachar</a
+          >
+        </li>
+        <li
+          id="manifiestos"
+          [ngClass]="{ active: activeSubMenu === 'manifiestos' }"
+        >
+          <a (click)="toggleSubMenu('manifiestos'); redirectManifiestos()"
+            >Manifiestos</a
+          >
+        </li>
+      </ul>
+    </li>
+
+    <li
+      *ngIf="userType === 'camion' || userType === 'admin'"
+      id="camiones"
+      [ngClass]="{ active: activeMenu === 'camiones' }"
+    >
+      <a class="d-flex align-items-center gap-2 px-3 py-2 sidebar-link" (click)="onLinkClick($event, 'camiones')">
+        <img
+          src="/assets/icon-right-arrow.png"
+          alt="Rigth arrow"
+          class="icon-arrow"
+        />
+        Camiones</a
+      >
+      <ul class="submenu list-unstyled ps-5">
+        <li id="envios" [ngClass]="{ active: activeSubMenu === 'envios' }">
+          <a  (click)="toggleSubMenu('envios'); redirectEnvios()">Envíos</a>
+        </li>
+        <li id="bitacoras" [ngClass]="{ active: activeSubMenu === 'bitacoras' }">
+          <a (click)="toggleSubMenu('bitacoras'); redirectBitacoras()">Bitácoras</a>
+        </li>
+        <li
+          *ngIf="userType === 'camion'"
+          id="ubicacion"
+          [ngClass]="{ active: activeSubMenu === 'ubicacion' }"
+        >
+          <a (click)="toggleSubMenu('ubicacion'); redirectUbicacion()">Ubicación</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div class="logout-button">
+    <button (click)="logout()">Salir</button>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<app-sidebar></app-sidebar>
+<div class="content">
+     
+    <!-- Título de la sección -->
+    <h2 class="section-title">Bitácoras</h2>
+  
+    <div class="row camiones">
+      <div class="col-md-6 camiones-fijos" *ngIf="camionesFijos?.length">
+        <h3>{{ camionesFijos.length === 1 ? 'Camión fijo' : 'Camiones fijos' }}</h3>
+          <div class="camiones-fijos-container">
+              <div *ngFor="let camion of camionesFijos">
+                <p>Camión {{camion.id}}</p>
+                  <div class="bitacoras" *ngIf="bitacorasPorCamion[camion.id]?.length">
+                      <table class="bitacora-table">
+                          <thead>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Fecha</th>
+                                  <th>Bitácora</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let bitacora of bitacorasPorCamion[camion.id]">
+                                  <td>{{ bitacora.id }}</td>
+                                  <td>
+                                    <ng-container *ngIf="bitacora.date; else noAssignmentDate">
+                                      {{ bitacora.date | date: 'dd-MM-yyyy' }}
+                                    </ng-container>
+                                    <ng-template #noAssignmentDate>---</ng-template>
+                                  </td>
+                                  <td>
+                                    <ng-container *ngIf="bitacora.bitacoraPdf !== '---'; else noPdf">
+                                      <img src="/assets/icon-pdf.png" alt="Referral Guide PDF" class="pdf-btn">
+                                    </ng-container>
+                                    <ng-template #noPdf>---</ng-template>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Tabla de camiones adicionales -->
+      <div class="col-md-6 camiones-adicionales"  *ngIf="camionesAdicionales?.length">
+        <h3>{{ camionesAdicionales.length === 1 ? 'Camión adicional' : 'Camiones adicionales' }}</h3>
+          <div class="camiones-adicionales-container">
+              <div *ngFor="let camion of camionesAdicionales">
+                <p>Camión {{camion.id}}</p>
+                  <div class="bitacoras" *ngIf="bitacorasPorCamion[camion.id]?.length">
+                      <table class="bitacora-table">
+                          <thead>
+                              <tr>
+                                  <th>ID</th>
+                                  <th>Fecha</th>
+                                  <th>Bitácora</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let bitacora of bitacorasPorCamion[camion.id]">
+                                <td>{{ bitacora.id }}</td>
+                                <td>
+                                    <ng-container *ngIf="bitacora.date; else noAssignmentDate">
+                                      {{ bitacora.date | date: 'dd-MM-yyyy' }}
+                                    </ng-container>
+                                    <ng-template #noAssignmentDate>---</ng-template>
+                                  </td>
+                                <td>
+                                  <ng-container *ngIf="bitacora.bitacoraPdf !== '---'; else noPdf">
+                                    <img src="/assets/icon-pdf.png" alt="Referral Guide PDF" class="pdf-btn">
+                                  </ng-container>
+                                  <ng-template #noPdf>---</ng-template>
+                                </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

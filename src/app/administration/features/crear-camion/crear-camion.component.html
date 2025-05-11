@@ -1,0 +1,82 @@
+<app-sidebar></app-sidebar>
+
+<div class="container-crear-camion">
+  <h1 class="titulo text-center mb-5">{{ tituloFormulario }}</h1>
+
+  <form class="mx-auto" [ngStyle]="{maxWidth: '650px'}">
+
+    <div class="mb-4">
+      <h2 class="subtitulo">Información del Camión</h2>
+    </div>
+
+    <div class="row g-3 data-format">
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="licensePlate">Placa</label>
+          <input type="text" class="form-control" id="licensePlate" [(ngModel)]="licensePlate" placeholder="Ej: ABC1234"
+            name="licensePlate" />
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="conductor">Conductor</label>
+          <select class="form-select" id="conductor" [(ngModel)]="conductorSeleccionado" name="conductor">
+            <option *ngFor="let usuario of usuarios" [value]="usuario.id">
+              {{ usuario.username }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="type">Tipo</label>
+          <select class="form-select" id="type" [(ngModel)]="type" name="type">
+            <option value="permanent">Permanente</option>
+            <option value="additional">Adicional</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="state">Estado</label>
+          <select class="form-select" id="state" [(ngModel)]="state" name="state">
+            <option value="available">Disponible</option>
+            <option value="inUse">En uso</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="entryTime">Hora de Entrada</label>
+          <input type="time" class="form-control" id="entryTime" [(ngModel)]="entryTime" name="entryTime" />
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="departureTime">Hora de Salida</label>
+          <input type="time" class="form-control" id="departureTime" [(ngModel)]="departureTime" name="departureTime" />
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-crear btn-primary px-4 py-2" (click)="manejarAccion()">
+        {{ textoBoton }}
+      </button>
+    </div>
+
+    <div class="mt-3">
+      <button type="button" class="btn back-button" (click)="redirectCamiones()">
+        Volver
+      </button>
+    </div>
+
+
+  </form>
+</div>

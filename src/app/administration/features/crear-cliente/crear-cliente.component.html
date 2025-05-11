@@ -1,0 +1,72 @@
+<app-sidebar></app-sidebar>
+
+<div class="container-crear-cliente">
+  <h1 class="titulo mb-5 text-center">{{ tituloFormulario }}</h1>
+
+  <form class="mx-auto" [ngStyle]="{maxWidth: '650px'}">
+    <div class="mb-4">
+      <h2 class="subtitulo">Información del Cliente</h2>
+    </div>
+
+    <div class="row g-3 data-format">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="companyName">Nombre de la Compañía</label>
+          <input type="text" class="form-control" id="companyName" [(ngModel)]="companyName" placeholder="Ej: Comercial Quito S.A." name="companyName">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="ruc">RUC</label>
+          <input type="text" class="form-control" id="ruc" [(ngModel)]="ruc" placeholder="Ej: 1790012345001" name="ruc">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="email">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" placeholder="Ej: ventas@comercialquito.com" name="email">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="address">Dirección</label>
+          <input type="text" class="form-control" id="address" [(ngModel)]="address" placeholder="Ej: Av. Amazonas N45-90" name="address">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="location">Ubicación</label>
+          <input type="text" class="form-control" id="location" [(ngModel)]="location" placeholder="Ej: -0.180653; -78.467838" name="location">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="text" class="form-control" id="phone" [(ngModel)]="phone" placeholder="Ej: 0987654321" name="phone">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="city">Ciudad</label>
+          <input type="text" class="form-control" id="city" [(ngModel)]="city" placeholder="Ej: Quito" name="city">
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-crear btn-primary px-4 py-2" (click)="manejarAccion()">
+        {{ textoBoton }}
+      </button>
+    </div>
+
+    <div class="mt-3">
+      <button type="button" class="btn back-button" (click)="redirectClientes()">Volver</button>
+    </div>
+  </form>
+</div>
