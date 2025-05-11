@@ -1,4 +1,4 @@
-export const API_URL: string = "http://localhost:5000/api/v1";
-export const WebSocket_URL: string = "http://localhost:5000";
+export const API_URL: string = "https://soluserlog-backend.vercel.app/api/v1";
+export const WebSocket_URL: string = "https://soluserlog-backend.vercel.app";
 
 export default API_URL;
